@@ -61,7 +61,7 @@ export function Int() {
       if (typeof newValue !== "number") {
         throw new Error(`${propertyKey} must be at of type number`);
       }
-      if (newValue % 1 !== 0 ) {
+      if (newValue % 1 !== 0) {
         throw new Error(`${propertyKey} must be an integer`);
       }
     }
