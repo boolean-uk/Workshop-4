@@ -39,7 +39,7 @@ export function NumberGreaterThan(number: number) {
       if (typeof newValue !== "number") {
         throw new Error(`${propertyKey} must be at of type number`);
       }
-      if (newValue < number) {
+      if (newValue <= number) {
         throw new Error(`${propertyKey} must be greater than ${number}`);
       }
     }
