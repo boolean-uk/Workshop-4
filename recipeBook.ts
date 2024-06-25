@@ -38,4 +38,8 @@ export class RecipeBook {
     const deletedRecipe = this._recipeList.splice(foundRecipeIndex, 1)[0];
     return deletedRecipe;
   }
+
+  public find(id: number) {
+    return this.recipes.find((recipe) => recipe.id === id);
+  }
 }
