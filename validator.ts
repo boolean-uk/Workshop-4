@@ -42,6 +42,7 @@ export function NumberGreaterThan(number: number) {
       if (newValue <= number) {
         throw new Error(`${propertyKey} must be greater than ${number}`);
       }
+      value = newValue;
     }
 
     Object.defineProperty(target, propertyKey, {
@@ -68,6 +69,7 @@ export function Int() {
       if (newValue % 1 !== 0) {
         throw new Error(`${propertyKey} must be an integer`);
       }
+      value = newValue;
     }
 
     Object.defineProperty(target, propertyKey, {
