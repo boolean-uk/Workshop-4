@@ -48,3 +48,27 @@ export function NumberGreaterThan(number: number) {
     });
   };
 }
+
+export function Int() {
+  return function (target: any, propertyKey: string) {
+    let value: number;
+
+    function getter() {
+      return value;
+    }
+
+    function setter(newValue: number) {
+      if (typeof newValue !== "number") {
+        throw new Error(`${propertyKey} must be at of type number`);
+      }
+      if (newValue % 1 !== 0 ) {
+        throw new Error(`${propertyKey} must be an integer`);
+      }
+    }
+
+    Object.defineProperty(target, propertyKey, {
+      get: getter,
+      set: setter,
+    });
+  };
+}
