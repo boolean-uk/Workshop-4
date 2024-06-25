@@ -2,10 +2,13 @@ import { Ingredient } from "./ingredient";
 import { Int, StringMinLength } from "./validator";
 
 export class Recipe {
-  private _id: number;
-  private _title: string;
-  private _ingredients: Ingredient[];
-  private _instructions: string;
+  @Int()
+  private _id!: number;
+  @StringMinLength(1)
+  private _title!: string;
+  private _ingredients!: Ingredient[];
+  @StringMinLength(1)
+  private _instructions!: string;
 
   constructor(
     id: number,
@@ -13,16 +16,15 @@ export class Recipe {
     ingredients: Ingredient[],
     instructions: string
   ) {
-    this._title = title;
-    this._id = id;
-    this._ingredients = ingredients;
-    this._instructions = instructions;
+    this.id = id;
+    this.title = title;
+    this.ingredients = ingredients;
+    this.instructions = instructions;
   }
 
   get id() {
     return this._id;
   }
-  @Int()
   set id(value: number) {
     this._id = value;
   }
@@ -30,7 +32,6 @@ export class Recipe {
   get title() {
     return this._title;
   }
-  @StringMinLength(1)
   set title(value: string) {
     this._title = value;
   }
@@ -45,7 +46,6 @@ export class Recipe {
   get instructions() {
     return this._instructions;
   }
-  @StringMinLength(1)
   set instructions(value: string) {
     this._instructions = value;
   }
