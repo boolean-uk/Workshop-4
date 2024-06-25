@@ -23,7 +23,7 @@ const allRecipes = book.recipes;
 const pastaById = book.find(1);
 
 if (pastaById) {
-  pastaById.instructions = "do pasta with the pasta"
+  pastaById.instructions = "do pasta with the pasta";
 }
 
 const pastaFilter = book.filter({ title: "pasta pasta" });
