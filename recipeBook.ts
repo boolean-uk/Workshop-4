@@ -10,6 +10,10 @@ export class RecipeBook {
   private _nextRecipeId: number;
   private _recipeList: Recipe[];
 
+  get recipes() {
+    return this._recipeList;
+  }
+
   public add(title: string, ingredients: Ingredient[], instructions: string) {
     const newRecipe = new Recipe(
       this._nextRecipeId++,
@@ -33,9 +37,5 @@ export class RecipeBook {
     }
 
     this._recipeList.splice(foundRecipeIndex, 1);
-  }
-
-  get recipes() {
-    return this._recipeList;
   }
 }
