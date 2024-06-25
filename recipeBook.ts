@@ -32,10 +32,10 @@ export class RecipeBook {
     );
 
     if (foundRecipeIndex === -1) {
-      console.error(`Recipe with id: ${id} not found`);
       return;
     }
 
-    this._recipeList.splice(foundRecipeIndex, 1);
+    const deletedRecipe = this._recipeList.splice(foundRecipeIndex, 1)[0];
+    return deletedRecipe;
   }
 }
