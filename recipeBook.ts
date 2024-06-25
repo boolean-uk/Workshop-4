@@ -21,4 +21,8 @@ export class RecipeBook {
     this._recipeList.push(newRecipe);
     return newRecipe;
   }
+
+  get recipes() {
+    return this._recipeList;
+  }
 }
