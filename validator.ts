@@ -21,6 +21,8 @@ export function StringMinLength(minLength: number) {
     Object.defineProperty(target, propertyKey, {
       get: getter,
       set: setter,
+      enumerable: true,
+      configurable: true,
     });
   };
 }
@@ -45,6 +47,8 @@ export function NumberGreaterThan(number: number) {
     Object.defineProperty(target, propertyKey, {
       get: getter,
       set: setter,
+      enumerable: true,
+      configurable: true,
     });
   };
 }
@@ -69,6 +73,8 @@ export function Int() {
     Object.defineProperty(target, propertyKey, {
       get: getter,
       set: setter,
+      enumerable: true,
+      configurable: true,
     });
   };
 }
