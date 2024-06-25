@@ -2,33 +2,51 @@ import { Ingredient } from "./ingredient";
 import { Int, StringMinLength } from "./validator";
 
 export class Recipe {
+  private _id: number;
+  private _title: string;
+  private _ingredients: Ingredient[];
+  private _instructions: string;
+
   constructor(
     id: number,
     title: string,
     ingredients: Ingredient[],
     instructions: string
   ) {
-    this.title = title;
-    this.id = id;
-    this.ingredients = ingredients;
-    this.instructions = instructions;
+    this._title = title;
+    this._id = id;
+    this._ingredients = ingredients;
+    this._instructions = instructions;
   }
 
+  get id() {
+    return this._id;
+  }
   @Int()
-  id: number;
+  set id(value: number) {
+    this._id = value;
+  }
 
+  get title() {
+    return this._title;
+  }
   @StringMinLength(1)
-  title: string;
+  set title(value: string) {
+    this._title = value;
+  }
 
-  ingredients: Ingredient[];
+  get ingredients() {
+    return this._ingredients;
+  }
+  set ingredients(value: Ingredient[]) {
+    this._ingredients = value;
+  }
 
+  get instructions() {
+    return this._instructions;
+  }
   @StringMinLength(1)
-  instructions: string;
+  set instructions(value: string) {
+    this._instructions = value;
+  }
 }
-
-const recipe = new Recipe(
-  1,
-  "123",
-  [{ name: "pasta", amount: 100, unit: "mg" }],
-  "abc"
-);
