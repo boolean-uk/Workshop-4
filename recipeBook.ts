@@ -42,4 +42,25 @@ export class RecipeBook {
   public find(id: number) {
     return this.recipes.find((recipe) => recipe.id === id);
   }
+
+  public filter(opts: RecipeFilterOptions) {
+    const optEntries = Object.entries(opts);
+
+    return this._recipeList.filter((recipe) => {
+      let match = true;
+      for (const [key, value] of optEntries) {
+        if (value !== recipe[key as keyof Recipe]) {
+          match = false;
+          break;
+        }
+      }
+      if (match) return recipe;
+    });
+  }
+}
+
+interface RecipeFilterOptions {
+  id?: number;
+  title?: string;
+  instructions?: string;
 }
