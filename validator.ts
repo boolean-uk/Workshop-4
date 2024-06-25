@@ -80,3 +80,29 @@ export function Int() {
     });
   };
 }
+
+export function ArrayLengthGreaterThan(number: number) {
+  return function (target: any, propertyKey: string) {
+    let value: any[];
+    
+    function getter() {
+      return value;
+    }
+    
+    function setter(newValue: any[]) {
+      if (newValue.length <= number) {
+        throw new Error(
+          `${propertyKey}'s length must be greater than ${number}`
+        );
+      }
+      value = newValue;
+    }
+
+    Object.defineProperty(target, propertyKey, {
+      get: getter,
+      set: setter,
+      enumerable: true,
+      configurable: true,
+    });
+  };
+}

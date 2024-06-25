@@ -1,11 +1,12 @@
 import { Ingredient } from "./ingredient";
-import { Int, StringMinLength } from "./validator";
+import { ArrayLengthGreaterThan, Int, StringMinLength } from "./validator";
 
 export class Recipe {
   @Int()
   private _id!: number;
   @StringMinLength(1)
   private _title!: string;
+  @ArrayLengthGreaterThan(0)
   private _ingredients!: Ingredient[];
   @StringMinLength(1)
   private _instructions!: string;
