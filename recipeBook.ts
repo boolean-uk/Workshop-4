@@ -22,6 +22,19 @@ export class RecipeBook {
     return newRecipe;
   }
 
+  public delete(id: number) {
+    const foundRecipeIndex = this.recipes.findIndex(
+      (recipe) => recipe.id === id
+    );
+
+    if (foundRecipeIndex === -1) {
+      console.error(`Recipe with id: ${id} not found`);
+      return;
+    }
+
+    this._recipeList.splice(foundRecipeIndex, 1);
+  }
+
   get recipes() {
     return this._recipeList;
   }
