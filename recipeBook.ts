@@ -3,22 +3,22 @@ import { Recipe } from "./recipe";
 
 export class RecipeBook {
   constructor() {
-    this.nextRecipeId = 1;
-    this.recipeList = [];
+    this._nextRecipeId = 1;
+    this._recipeList = [];
   }
 
-  private nextRecipeId: number;
-  private recipeList: Recipe[];
+  private _nextRecipeId: number;
+  private _recipeList: Recipe[];
 
   public add(title: string, ingredients: Ingredient[], instructions: string) {
     const newRecipe = new Recipe(
-      this.nextRecipeId++,
+      this._nextRecipeId++,
       title,
       ingredients,
       instructions
     );
 
-    this.recipeList.push(newRecipe);
+    this._recipeList.push(newRecipe);
     return newRecipe;
   }
 }
