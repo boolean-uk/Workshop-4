@@ -24,3 +24,27 @@ export function StringMinLength(minLength: number) {
     });
   };
 }
+
+export function NumberGreaterThan(number: number) {
+  return function (target: any, propertyKey: string) {
+    let value: number;
+
+    function getter() {
+      return value;
+    }
+
+    function setter(newValue: number) {
+      if (typeof newValue !== "number") {
+        throw new Error(`${propertyKey} must be at of type number`);
+      }
+      if (newValue < number) {
+        throw new Error(`${propertyKey} must be greater than ${number}`);
+      }
+    }
+
+    Object.defineProperty(target, propertyKey, {
+      get: getter,
+      set: setter,
+    });
+  };
+}
