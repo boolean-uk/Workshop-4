@@ -18,10 +18,18 @@ class Recipe implements RecipeI {
     this.instructions = instructions
   }
 
-  public update({ title, ingredients, instructions }: RecipeI) {
-    this.title = title
-    this.ingredients = ingredients
-    this.instructions = instructions
+  public update({ title, ingredients, instructions }: Partial<RecipeI>) {
+    if (title) {
+      this.title = title
+    }
+
+    if (ingredients) {
+      this.ingredients = ingredients
+    }
+
+    if (instructions) {
+      this.instructions = instructions
+    }
   }
 }
 
