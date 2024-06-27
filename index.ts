@@ -2,14 +2,14 @@
 // Create a class Manager for all recipes
 // Methods to edit, delete, and display recipes
 
-import Recipes from "./recipesBook";
+import RecipesBook from "./recipesBook";
 
-class Manager extends Recipes {
-  recipesList: Recipes
+class Manager {
+  RecipesBookList: RecipesBook[]
 
   constructor() {
-    super()
-
-    this.recipesList = new Recipes()
+    this.RecipesBookList = []
   }
+
+
 }

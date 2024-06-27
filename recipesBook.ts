@@ -1,6 +1,11 @@
 import Recipe from "./recipe"
 
-class Recipes {
+interface RecipesBookI {
+  id: number,
+  name: string
+}
+
+class RecipesBook {
   private _idCount: number
   private _recipesList: Recipe[]
 
@@ -39,4 +44,4 @@ class Recipes {
 
 }
 
-export default Recipes
+export default RecipesBook
