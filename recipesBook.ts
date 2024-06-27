@@ -9,6 +9,18 @@ class Recipes {
     this._recipesList = []
   }
 
+  private addNew({ title, ingredients, instructions }: Recipe) {
+    const newRecipe = new Recipe({
+      id: this._idCount,
+      title,
+      ingredients,
+      instructions
+    })
+
+    this._recipesList.push(newRecipe)
+    this._idCount++
+  }
+
 }
 
 export default Recipes

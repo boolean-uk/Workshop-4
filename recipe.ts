@@ -17,7 +17,6 @@ class Recipe implements RecipeI {
     this.ingredients = ingredients
     this.instructions = instructions
   }
-
 }
 
 export default Recipe
