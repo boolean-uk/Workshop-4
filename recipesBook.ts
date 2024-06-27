@@ -21,6 +21,10 @@ class Recipes {
     this._idCount++
   }
 
+  private delete(recipeId: number) {
+    this._recipesList.filter(recipe => recipe.id !== recipeId)
+  }
+
 }
 
 export default Recipes
