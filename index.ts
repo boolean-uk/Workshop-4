@@ -24,6 +24,7 @@ class Manager {
     })
 
     this._recipesBookList.push(newBook)
+    return newBook
   }
 
   public deleteBook(bookId: number) {
@@ -42,7 +43,10 @@ class Manager {
 
 const manager = new Manager()
 
-const Book1 = manager.createBook({
-  name: "Book 1",
-  desc: "description for book 1"
+const PizzaBook = manager.createBook({
+  name: "Pizzas",
+  desc: "This is the book with pizzas"
 })
+
+
+

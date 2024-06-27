@@ -41,6 +41,7 @@ class RecipesBook {
     })
 
     this._recipesList.push(newRecipe)
+    return newRecipe
   }
 
   public deleteRecipe(recipeId: number) {
