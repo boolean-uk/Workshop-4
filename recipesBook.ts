@@ -25,6 +25,14 @@ class Recipes {
     this._recipesList.filter(recipe => recipe.id !== recipeId)
   }
 
+  private update(recipeId: number, { title, ingredients, instructions }: Recipe) {
+    const foundRecipe = this._recipesList.find(recipe => recipe.id === recipeId)
+
+    if (foundRecipe) {
+      foundRecipe.update({ id: foundRecipe.id, title, ingredients, instructions })
+    }
+  }
+
 }
 
 export default Recipes

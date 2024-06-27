@@ -17,6 +17,12 @@ class Recipe implements RecipeI {
     this.ingredients = ingredients
     this.instructions = instructions
   }
+
+  public update({ title, ingredients, instructions }: RecipeI) {
+    this.title = title
+    this.ingredients = ingredients
+    this.instructions = instructions
+  }
 }
 
 export default Recipe
