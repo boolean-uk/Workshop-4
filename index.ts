@@ -39,6 +39,10 @@ class Manager {
     }
   }
 
+  public showAllBooks(): RecipesBook[] {
+    return this._recipesBookList
+  }
+
 }
 
 const manager = new Manager()
