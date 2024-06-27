@@ -1,50 +1,53 @@
 import Recipe from "./recipe"
 
-interface RecipesBookI {
+interface BookI {
   id: number,
   name: string,
   desc: string
 }
 
+interface RecipeDataI {
+  title: string,
+  ingredients: string[],
+  instructions: string
+}
+
 class RecipesBook {
-  private _idCount: number
   private _recipesList: Recipe[]
 
   id: number
   name: string
   desc: string
 
-  constructor({ id, name, desc }: RecipesBookI) {
+  constructor({ id, name, desc }: BookI) {
     this.id = id
     this.name = name
     this.desc = desc
-    this._idCount = 0
     this._recipesList = []
   }
 
-  public update({ name, desc }: RecipesBookI) {
+  public update({ name, desc }: BookI) {
     this.name = name
     this.desc = desc
   }
 
   // Recipes
-  public addRecipe({ title, ingredients, instructions }: Recipe) {
+  public addRecipe({ title, ingredients, instructions }: RecipeDataI) {
     const newRecipe = new Recipe({
-      id: this._idCount,
+      id: Date.now(),
       title,
       ingredients,
       instructions
     })
 
     this._recipesList.push(newRecipe)
-    this._idCount++
   }
 
   public deleteRecipe(recipeId: number) {
     this._recipesList.filter(recipe => recipe.id !== recipeId)
   }
 
-  public updateRecipe(recipeId: number, { title, ingredients, instructions }: Recipe) {
+  public updateRecipe(recipeId: number, { title, ingredients, instructions }: RecipeDataI) {
     const foundRecipe = this._recipesList.find(recipe => recipe.id === recipeId)
 
     if (foundRecipe) {

@@ -4,31 +4,33 @@
 
 import RecipesBook from "./recipesBook";
 
+interface BookDataI {
+  name: string,
+  desc: string
+}
+
 class Manager {
-  private _idCount: number
   private _recipesBookList: RecipesBook[]
 
   constructor() {
-    this._idCount = 0
     this._recipesBookList = []
   }
 
-  public createBook({ name, desc }: RecipesBook) {
+  public createBook({ name, desc }: BookDataI) {
     const newBook = new RecipesBook({
-      id: this._idCount,
+      id: Date.now(),
       name,
       desc
     })
 
     this._recipesBookList.push(newBook)
-    this._idCount++
   }
 
   public deleteBook(bookId: number) {
     this._recipesBookList.filter(book => book.id !== bookId)
   }
 
-  public updateBook(bookId: number, { name, desc }: RecipesBook) {
+  public updateBook(bookId: number, { name, desc }: BookDataI) {
     const foundBook = this._recipesBookList.find(book => book.id === bookId)
 
     if (foundBook) {
@@ -37,3 +39,10 @@ class Manager {
   }
 
 }
+
+const manager = new Manager()
+
+const Book1 = manager.createBook({
+  name: "Book 1",
+  desc: "description for book 1"
+})
