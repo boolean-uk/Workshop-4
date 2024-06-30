@@ -19,6 +19,9 @@ myBook.addRecipe(myBreakfast)
 myBook.addRecipe(myBreakfast2)
 myBook.addRecipe(fruit)
 
+fruit.addIngredient(new Ingredient("apple", 1, "pcs"))
+fruit.addIngredient(new Ingredient("apple", 1, "pcs"))
+
 console.log(myBook.listRecipes())
 myBook.deleteRecipe(-1)
 myBook.deleteRecipe(5)

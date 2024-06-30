@@ -32,6 +32,20 @@ export class Recipe {
 			this.ingredientList = ingredientList
 	}
 
+	public addIngredient(newIngredient: Ingredient) {
+		try {
+			const ingredientExists = this.ingredientList?.find(ingredient => ingredient.name === newIngredient.name)
+			if (ingredientExists) throw new Error(`${newIngredient.name} is already present!`)
+			this.ingredientList?.push(newIngredient)
+			return this.ingredientList
+		} catch (error) {
+			let message = "unknown error"
+			if (error instanceof Error) message = error.message
+			console.log(message)
+			return this.ingredientList
+		}
+	}
+
 	public describe(): string {
 		return (
 			`${this.title}
