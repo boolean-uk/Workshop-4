@@ -59,6 +59,22 @@ export class RecipeBook {
 		return this.recipes.find((recipe) => recipe.title === title)?.describe() || `No recipe titled ${title}.`
 	}
 
+	public deleteRecipe(number: number): boolean {
+		try {
+			const deletedRecipe = this.recipes.splice(number-1, 1)[0]
+			if (deletedRecipe) {
+				console.log(`Deleted ${deletedRecipe.title}`)
+				return true
+			} else {
+				console.log(`No recipe with number ${number}.`)
+				return false
+			}
+		} catch (error) {
+			console.log(error)
+			return false
+		}
+	}
+
 	public listRecipes(): string {
 		return this.recipes.map((recipe, index) => `${index+1} ${recipe.title}`).join("\n")
 	}
