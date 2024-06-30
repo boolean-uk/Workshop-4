@@ -60,6 +60,14 @@ export class Recipe {
 		}
 	}
 
+	public updateInstructions (newInstructions: string) {
+		this.instructions = newInstructions
+	}
+
+	public updateDuration (newDuration: number) {
+		this.duration = newDuration
+	}
+
 	public read(): string {
 		return (
 			`${this.title}
