@@ -20,5 +20,7 @@ myBook.addRecipe(myBreakfast2)
 myBook.addRecipe(fruit)
 
 console.log(myBook.listRecipes())
+myBook.deleteRecipe(-1)
+myBook.deleteRecipe(5)
 myBook.deleteRecipe(1)
 console.log(myBook.listRecipes())

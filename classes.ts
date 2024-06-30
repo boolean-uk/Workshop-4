@@ -61,6 +61,8 @@ export class RecipeBook {
 
 	public deleteRecipe(number: number): boolean {
 		try {
+			if (number > this.recipes.length) throw new Error(`This book only has ${this.recipes.length} recipes!`)
+			if (number < 1) throw new Error("Number has to be 1 or higher!")
 			const deletedRecipe = this.recipes.splice(number-1, 1)[0]
 			if (deletedRecipe) {
 				console.log(`Deleted ${deletedRecipe.title}`)
@@ -70,7 +72,9 @@ export class RecipeBook {
 				return false
 			}
 		} catch (error) {
-			console.log(error)
+			let message = "unknown error"
+			if (error instanceof Error) message = error.message
+			console.log(message)
 			return false
 		}
 	}
