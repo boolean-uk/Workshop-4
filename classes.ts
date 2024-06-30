@@ -60,7 +60,7 @@ export class Recipe {
 		}
 	}
 
-	public describe(): string {
+	public read(): string {
 		return (
 			`${this.title}
 Duration: ${this.duration} min
@@ -84,7 +84,7 @@ export class RecipeBook {
 	}
 
 	public findRecipe(title: string): string {
-		return this.recipes.find((recipe) => recipe.title === title)?.describe() || `No recipe titled ${title}.`
+		return this.recipes.find((recipe) => recipe.title === title)?.read() || `No recipe titled ${title}.`
 	}
 
 	public deleteRecipe(number: number): boolean {
@@ -108,6 +108,6 @@ export class RecipeBook {
 	}
 
 	public listRecipes(): string {
-		return this.recipes.map((recipe, index) => `${index+1} ${recipe.title}`).join("\n")
+		return this.title + " – Table of Contents\n" + this.recipes.map((recipe, index) => `${index+1} ${recipe.title}`).join("\n")
 	}
 }
