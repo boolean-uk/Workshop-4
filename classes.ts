@@ -46,11 +46,25 @@ export class Recipe {
 		}
 	}
 
+	public removeIngredient(unwantedIngredient: Ingredient) {
+		try {
+			const ingredientExists = this.ingredientList?.find(ingredient => ingredient.name === unwantedIngredient.name)
+			if (!ingredientExists) throw new Error(`${unwantedIngredient.name} is not present!`)
+			this.ingredientList = this.ingredientList?.filter(ingredient => ingredient.name !== unwantedIngredient.name)
+			return this.ingredientList
+		} catch (error) {
+			let message = "unknown error"
+			if (error instanceof Error) message = error.message
+			console.log(message)
+			return this.ingredientList
+		}
+	}
+
 	public describe(): string {
 		return (
 			`${this.title}
 Duration: ${this.duration} min
-Ingredients: ${this.ingredientList?.map(el => [el.amount, el.unit, el.name].join(" ")).join("\n")}
+Ingredients:\n${this.ingredientList?.map(el => [el.amount, el.unit, el.name].join(" ")).join("\n")}
 Instructions: ${this.instructions}`
 		)
 	}
