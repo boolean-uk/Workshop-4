@@ -59,4 +59,8 @@ export class RecipeBook {
         }
         return false; 
     }
+
+    public viewRecipes(): Recipe[] {
+        return this.recipes
+    }
 }
