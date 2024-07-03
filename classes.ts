@@ -49,8 +49,8 @@ export class RecipeBook {
         return newRecipe;
     }
 
-    public removeRecipe(recipeId: number): boolean {
-        const indexToRemove = this.recipes.findIndex((recipe) => recipe.id === recipeId);
+    public removeRecipe(recipeName: string): boolean {
+        const indexToRemove = this.recipes.findIndex((recipe) => recipe.title === recipeName);
         const titleForRemovalMessage = this.recipes[indexToRemove].title
         if (indexToRemove !== -1) {
             this.recipes.splice(indexToRemove, 1);
