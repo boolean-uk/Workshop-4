@@ -16,4 +16,14 @@ export class Recipe implements RecipeInterface {
     this.name = name;
     this.ingredients = ingredients;
   }
+
+  public update({ name, ingredients }: Partial<RecipeInterface>): void {
+    if (name) {
+      this.name = name;
+    }
+
+    if (ingredients) {
+      this.ingredients = ingredients;
+    }
+  }
 }
