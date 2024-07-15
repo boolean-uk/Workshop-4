@@ -74,6 +74,16 @@ class RecipeBook {
 
     return `Recipe with ID: ${id} updated.`;
   }
+
+  public getRecipeById(id: number): Recipe | string {
+    const foundRecipe = this.recipes.find((recipe) => recipe.id === id);
+
+    if (!foundRecipe) {
+      return "No recipes found with given ID";
+    }
+
+    return foundRecipe;
+  }
 }
 
 export default RecipeBook;
