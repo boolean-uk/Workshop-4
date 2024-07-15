@@ -59,6 +59,21 @@ class RecipeBook {
 
     return `Recipe with ID: ${id} deleted.`;
   }
+
+  public updateRecipeById(
+    id: number,
+    { name, ingredients, instructions }: Partial<Recipe>
+  ): string {
+    const foundRecipe = this.recipes.find((recipe) => recipe.id === id);
+
+    if (!foundRecipe) {
+      return "No recipes found with given ID";
+    }
+
+    foundRecipe.update({ name, ingredients, instructions });
+
+    return `Recipe with ID: ${id} updated.`;
+  }
 }
 
 export default RecipeBook;
