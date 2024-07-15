@@ -23,7 +23,7 @@ export class Recipe implements RecipeInterface {
     }
 
     if (ingredients) {
-      this.ingredients = ingredients;
+      this.ingredients = [...this.ingredients, ...ingredients];
     }
   }
 }
