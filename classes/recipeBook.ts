@@ -47,6 +47,18 @@ class RecipeBook {
 
     return `${name} recipe added to your recipe book: ${this.title}`;
   }
+
+  public deleteRecipeById(id: number): string {
+    const foundRecipe = this.recipes.find((recipe) => recipe.id === id);
+
+    if (!foundRecipe) {
+      return "No recipes found with given ID";
+    }
+
+    this.recipes = this.recipes.filter((recipe) => recipe.id !== id);
+
+    return `Recipe with ID: ${id} deleted.`;
+  }
 }
 
 export default RecipeBook;
